@@ -1,0 +1,38 @@
+systemName "Trajeto_Metro"
+
+maxTestCaseSize 6
+
+usecase "Encontra trajeto" {
+	version "0.1" type "Creation" user "Beatriz" date "06/10/2020"
+	actor metroUser "Metro User"
+	
+	preCondition "O usuário escolhe a opção 1 no menu: Encontrar Trajeto(s)", "O sistema pedir para o usuário informar a estação de origem" 
+	
+	basic {
+		step 1 metroUser "Informa a estação de origem" 
+		step 2 system "Solicita uma estação de destino" ef [1]
+		step 3 metroUser "Informa a estação de destino" 
+		step 4 system "Solicita a quantidade de trajetos" ef [2]
+		step 5 metroUser "Informa a quantidade de trajetos"
+		step 6 system "Solicita confirmação de remoção de linha"
+		step 7 metroUser "Informa que nao quer remover linha" af[1]
+		step 8 system "Informa os trajetos disponiveis"
+	}
+	
+	alternative 1 "Remover linha" {
+		step 1 metroUser "Escolhe remover linha"
+		step 2 system "Solicita linha a ser removida"
+		step 3 metroUser "Informa a linha a ser removida"
+		step 4 system "Informa os trajetos disponíveis excluindo os trajetos que contém a linha removida"
+	}
+	
+	exception 1 "Estação de origem inexistente" {
+		step 1 system "Solicita novamente uma estação de origem" bs 1
+  	}
+  	
+  	exception 2 "Estação de destino inexistente" {
+  		step 1 system "Solicita novamente uma estação de destino" bs 3  
+  	}
+	
+	postCondition "Uma lista contendo os menores trajetos entre uma estação e outra na rede"
+}

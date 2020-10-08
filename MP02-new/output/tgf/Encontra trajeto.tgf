@@ -1,0 +1,31 @@
+1 1
+2 2
+3 3
+4 4
+5 5
+6 6
+7 7
+8 8
+9 9
+10 10
+11 11
+12 12
+13 13
+14 14
+#
+1 2 [c] O usuário escolhe a opção 1 no menu: Encontrar Trajeto(s). O sistema pedir para o usuário informar a estação de origem
+2 3 [s] Metro User Informa a estação de origem
+3 4 [e] system Solicita uma estação de destino
+4 5 [s] Metro User Informa a estação de destino
+5 6 [e] system Solicita a quantidade de trajetos
+6 7 [s] Metro User Informa a quantidade de trajetos
+7 8 [e] system Solicita confirmação de remoção de linha
+8 9 [s] Metro User Informa que nao quer remover linha
+9 10 [e] system Informa os trajetos disponiveis
+10 11 [c] Uma lista contendo os menores trajetos entre uma estação e outra na rede
+3 2 [e] system Solicita novamente uma estação de origem
+5 4 [e] system Solicita novamente uma estação de destino
+8 12 [s] Metro User Escolhe remover linha
+12 13 [e] system Solicita linha a ser removida
+13 14 [s] Metro User Informa a linha a ser removida
+14 11 [e] system Informa os trajetos disponíveis excluindo os trajetos que contém a linha removida
